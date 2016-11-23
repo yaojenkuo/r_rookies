@@ -1,0 +1,124 @@
+---
+title: "建立你的 R 語言開發環境"
+author: "Yao-Jen Kuo"
+date: "`r Sys.Date()`"
+output: slidy_presentation
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## 安裝 R(OS X)
+
+- 從 The Comprehensive R Archive Network（[CRAN](https://cran.r-project.org/)）下載 .dmg 檔進行安裝
+
+## 安裝 R(Windows)
+
+- 從 The Comprehensive R Archive Network（[CRAN](https://cran.r-project.org/)）下載 .exe 檔進行安裝
+
+## 安裝 R(Linux，以 UBUNTU 14.04 LTS 為例)
+
+- 從命令列安裝
+- 系統更新
+```
+sudo apt-get update
+```
+- 安裝 VIM 文字編輯器
+```
+sudo apt-get install vim
+```
+- 編輯 /etc/apt/sources.list
+```
+vim /etc/apt/sources.list
+```
+- 在 /etc/apt/sources.list 文件的最下方加入：
+```
+deb http://cran.csie.ntu.edu.tw/bin/linux/ubuntu trusty/
+```
+加入之後按 `:wq` 存檔並離開。
+- 加入 UBUNTU 在 CRAN 的金鑰至系統
+```
+sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E084DAB9
+```
+- 開始安裝
+```
+sudo apt-get install r-base
+```
+- 在 /etc/apt/sources.list 文件的最下方加入:
+```
+deb http://ftp.ubuntu-tw.net/mirror/ubuntu/ trusty main 
+deb-src http://ftp.ubuntu-tw.net/mirror/ubuntu/ trusty main
+```
+
+## 安裝 RStudio(OS X)
+
+- 從 [RStudio](https://www.rstudio.com/products/rstudio/download3/) 下載 .dmg 檔來進行安裝
+
+## 安裝 RStudio(Windows)
+
+- 從 [RStudio](https://www.rstudio.com/products/rstudio/download3/) 下載 .exe 檔來進行安裝
+
+## 安裝 RStudio(Linux，以 UBUNTU 14.04 LTS 為例)
+
+- 從 [RStudio](https://www.rstudio.com/products/rstudio/download3/) 下載 installer 檔案
+- 解壓縮後進行安裝
+```
+cd ~/Downloads
+sudo apt-get install libjpeg62
+sudo dpkg -i rstudio-0.99.893-amd64.deb
+```
+
+## 安裝 Git(OS X)
+
+- OS X 內建 Git，不需要進行安裝。
+- 或者至 [git](https://git-scm.com/download/mac) 下載 .dmg 檔來進行安裝
+
+## 安裝 Git(Windows)
+
+- 至 [git](https://git-scm.com/download/mac) 下載 .exe 檔來進行安裝
+
+## 安裝 Git(Linux，以 UBUNTU 14.04 LTS 為例)
+
+- 從命令列安裝
+```
+sudo apt-get install git
+```
+
+## 申請 GitHub 帳號
+
+- 至 [GitHub](https://github.com/) 申請一個帳戶
+
+## 設定 Git
+
+- 告訴 Git 你的帳戶與電子信箱
+```
+git config --global user.name "YOUR NAME"
+git config --global user.email "YOUR EMAIL ADDRESS"
+```
+
+## 建立一個遠端 repository
+
+- 至 [GitHub](https://github.com/) 建立一個遠端 repository
+- 將新建的 repository 複製回本機資料夾
+```
+cd ~
+git clone "YOUR REPOSITORY URL"
+```
+
+## 將程式碼推到遠端 repository
+
+- 在本機資料夾撰寫一個 `hello_world.R`，只有一行程式：
+```
+print("Hello World!")
+```
+
+- 存檔後在命令列輸入：
+```
+git add .
+git commit -m "first commit"
+git push
+```
+
+- 依照提示輸入帳戶與密碼
+- 至遠端 repository 查看是否推成功
