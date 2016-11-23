@@ -1,6 +1,6 @@
 {
   "name": "R 語言新手村",
   "tagline": "R 語言初學者的學習教材",
-  "body": "### 簡介\r\n這是郭耀仁在台灣大學資訊工程學系資訊系統訓練班所開設的 R 語言新手村課程網頁，課程時數 10 小時。\r\n\r\n### 課程大綱\r\n- 建立你的 R 語言開發環境\r\n- 單一變數與函數\r\n- 多種資料類型\r\n- 流程控制\r\n- 自訂函數\r\n- 讀取不同的資料格式\r\n- 活用資料框\r\n- 簡單的統計與繪圖\r\n- 用 R Markdown 撰寫資料分析報告\r\n- 資料分析實戰\r\n\r\n### 課程錄影連結\r\n- TBD",
+  "body": "### 簡介\r\n這是郭耀仁在台灣大學資訊工程學系資訊系統訓練班所開設的 R 語言新手村課程網頁，課程時數 10 小時。\r\n\r\n### 課程大綱\r\n- [建立你的 R 語言開發環境](https://yaojenkuo.github.io/r_rookies/ch1)\r\n- 單一變數與函數\r\n- 多種資料類型\r\n- 流程控制\r\n- 自訂函數\r\n- 讀取不同的資料格式\r\n- 活用資料框\r\n- 簡單的統計與繪圖\r\n- 用 R Markdown 撰寫資料分析報告\r\n- 資料分析實戰\r\n\r\n### 課程錄影連結\r\n- TBD",
   "note": "Don't delete this file! It's used internally to help with page regeneration."
 }
