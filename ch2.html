@@ -73,9 +73,9 @@ Yao-Jen Kuo
 <span class="dv">3</span> %%<span class="st"> </span><span class="dv">2</span> <span class="co"># 餘數</span></code></pre></div>
 </div>
 <div id="1" class="slide section level2">
-<h1>設定變數（1）</h1>
+<h1>建立變數（1）</h1>
 <ul>
-<li>R 語言的使用者習慣使用 <code>&lt;-</code> 來設定變數</li>
+<li>R 語言的使用者習慣使用 <code>&lt;-</code> 來建立變數</li>
 <li>在 RStudio 中可以按 <code>Alt 與 -</code> 來產生 <code>&lt;-</code> 符號</li>
 <li>R 語言是<strong>動態型別語言</strong>，這表示你可以很有彈性地改變變數</li>
 </ul>
@@ -85,14 +85,14 @@ b &lt;-<span class="st"> </span><span class="dv">3</span>
 a
 b
 a *<span class="st"> </span>b
-a &lt;-<span class="st"> </span><span class="dv">5</span> <span class="co"># 將 a 設定為 5</span>
+a &lt;-<span class="st"> </span><span class="dv">5</span> <span class="co"># 將 a 改變為 5</span>
 a
 a *<span class="st"> </span>b</code></pre></div>
 </div>
 <div id="2" class="slide section level2">
-<h1>設定變數（2）</h1>
+<h1>建立變數（2）</h1>
 <ul>
-<li>你也可以用與其他程式語言相同的 <code>=</code> 來設定變數</li>
+<li>你也可以用與其他程式語言相同的 <code>=</code> 來建立變數</li>
 <li>但是我推薦使用 <code>&lt;-</code></li>
 </ul>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">a =<span class="st"> </span><span class="dv">2</span>
@@ -138,6 +138,7 @@ logi_f &lt;-<span class="st"> </span><span class="ot">FALSE</span>
 <span class="co"># 運算</span>
 num +<span class="st"> </span>int
 num +<span class="st"> </span>compl
+int +<span class="st"> </span>logi_t
 logi_t *<span class="st"> </span><span class="dv">5</span></code></pre></div>
 <ul>
 <li>但是字串的運算則不如 Python 或 Ruby 這麼彈性</li>
@@ -167,7 +168,7 @@ q() # 離開 RStudio</code></pre>
 </div>
 <div class="slide section level2">
 <h1>隨堂練習</h1>
-<p><a href>單一變數與函數 - 隨堂練習</a></p>
+<p><a href="https://yaojenkuo.github.io/r_rookies/ch2_exercise">單一變數與函數 - 隨堂練習</a></p>
 </div>
 
   <!-- dynamically load mathjax for compatibility with self-contained -->
