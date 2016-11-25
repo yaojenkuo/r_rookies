@@ -61,15 +61,113 @@ Yao-Jen Kuo
 <h1>計算機</h1>
 <ul>
 <li>計算機是 R 語言的命令列（Console）最基本的應用！</li>
-<li>在命令列試著進行加減乘除運算</li>
 <li>R 語言使用單行註解 <code>#</code> （pound）</li>
+<li>在命令列試著進行加減乘除運算：</li>
 </ul>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">2</span> +<span class="st"> </span><span class="dv">1</span> <span class="co"># 加法</span>
-<span class="dv">2</span> -<span class="st"> </span><span class="dv">1</span> <span class="co"># 減法</span>
-<span class="dv">2</span> *<span class="st"> </span><span class="dv">1</span> <span class="co"># 乘法</span>
-<span class="dv">2</span> /<span class="st"> </span><span class="dv">1</span> <span class="co"># 除法</span>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># 在命令列依序輸入後觀察產出</span>
+<span class="dv">2</span> +<span class="st"> </span><span class="dv">1</span>
+<span class="dv">2</span> -<span class="st"> </span><span class="dv">1</span>
+<span class="dv">2</span> *<span class="st"> </span><span class="dv">2</span>
+<span class="dv">4</span> /<span class="st"> </span><span class="dv">2</span>
 <span class="dv">2</span> ^<span class="st"> </span><span class="dv">2</span> <span class="co"># 次方</span>
 <span class="dv">3</span> %%<span class="st"> </span><span class="dv">2</span> <span class="co"># 餘數</span></code></pre></div>
+</div>
+<div id="1" class="slide section level2">
+<h1>設定變數（1）</h1>
+<ul>
+<li>R 語言的使用者習慣使用 <code>&lt;-</code> 來設定變數</li>
+<li>在 RStudio 中可以按 <code>Alt 與 -</code> 來產生 <code>&lt;-</code> 符號</li>
+<li>R 語言是<strong>動態型別語言</strong>，這表示你可以很有彈性地改變變數</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># 在命令列依序輸入後觀察回傳</span>
+a &lt;-<span class="st"> </span><span class="dv">2</span>
+b &lt;-<span class="st"> </span><span class="dv">3</span>
+a
+b
+a *<span class="st"> </span>b
+a &lt;-<span class="st"> </span><span class="dv">5</span> <span class="co"># 將 a 設定為 5</span>
+a
+a *<span class="st"> </span>b</code></pre></div>
+</div>
+<div id="2" class="slide section level2">
+<h1>設定變數（2）</h1>
+<ul>
+<li>你也可以用與其他程式語言相同的 <code>=</code> 來設定變數</li>
+<li>但是我推薦使用 <code>&lt;-</code></li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">a =<span class="st"> </span><span class="dv">2</span>
+a</code></pre></div>
+</div>
+<div id="1" class="slide section level2">
+<h1>單一變數類型（1）</h1>
+<ul>
+<li>R 語言的基本變數類型</li>
+<li>數字（numeric）</li>
+<li>整數（integer）</li>
+<li>複數（complex）</li>
+<li>文字（character）</li>
+<li>邏輯值（logical）</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># 在命令列依序輸入</span>
+num &lt;-<span class="st"> </span><span class="dv">2</span>
+int &lt;-<span class="st"> </span>2L
+compl &lt;-<span class="st"> </span><span class="dv">2</span> +<span class="st"> </span>3i
+char &lt;-<span class="st"> &quot;Hello&quot;</span> <span class="co"># 用引號告訴 R 語言這是一組字串</span>
+logi_t &lt;-<span class="st"> </span><span class="ot">TRUE</span>
+logi_f &lt;-<span class="st"> </span><span class="ot">FALSE</span>
+<span class="co"># 把這些變數輸出在命令列</span>
+num
+int
+compl
+char
+logi_t
+logi_f</code></pre></div>
+</div>
+<div id="2" class="slide section level2">
+<h1>單一變數類型（2）</h1>
+<ul>
+<li>R 語言的數值型變數運算時很有彈性</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># 在命令列依序輸入</span>
+num &lt;-<span class="st"> </span><span class="dv">2</span>
+int &lt;-<span class="st"> </span>2L
+compl &lt;-<span class="st"> </span><span class="dv">2</span> +<span class="st"> </span>3i
+char &lt;-<span class="st"> &quot;Hello&quot;</span> <span class="co"># 用引號告訴 R 語言這是一組字串</span>
+logi_t &lt;-<span class="st"> </span><span class="ot">TRUE</span>
+logi_f &lt;-<span class="st"> </span><span class="ot">FALSE</span>
+<span class="co"># 運算</span>
+num +<span class="st"> </span>int
+num +<span class="st"> </span>compl
+logi_t *<span class="st"> </span><span class="dv">5</span></code></pre></div>
+<ul>
+<li>但是字串的運算則不如 Python 或 Ruby 這麼彈性</li>
+</ul>
+<pre><code>char * 5 # Error
+char + &quot; World!&quot; # Error</code></pre>
+</div>
+<div class="slide section level2">
+<h1>函數</h1>
+<ul>
+<li>R 語言是一種<strong>函數型編程</strong>（functional programming）的程式語言</li>
+</ul>
+<blockquote>
+<p>Everything that happens is a function call. By <a href="https://en.wikipedia.org/wiki/John_Chambers_(statistician)">John Chambers</a></p>
+</blockquote>
+<ul>
+<li>習慣使用 <code>()</code> 來避免混淆變數與函數</li>
+</ul>
+<pre><code>class() # 回傳變數的類型
+ls() # 目前環境中有哪些變數
+rm() # 移除環境中的變數
+getwd() # 目前的檔案路徑在哪裡
+setwd() # 設定檔案路徑
+Sys.Date() # 回傳系統日期
+Sys.time() # 回傳系統日期與時間
+q() # 離開 RStudio</code></pre>
+</div>
+<div class="slide section level2">
+<h1>隨堂練習</h1>
+<p><a href>單一變數與函數 - 隨堂練習</a></p>
 </div>
 
   <!-- dynamically load mathjax for compatibility with self-contained -->

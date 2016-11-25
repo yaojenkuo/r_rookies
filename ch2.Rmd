@@ -99,7 +99,7 @@ logi_t * 5
 
 - 但是字串的運算則不如 Python 或 Ruby 這麼彈性
 
-```{r}
+```
 char * 5 # Error
 char + " World!" # Error
 ```
@@ -113,7 +113,7 @@ char + " World!" # Error
 
 - 習慣使用 `()` 來避免混淆變數與函數
 
-```{r}
+```
 class() # 回傳變數的類型
 ls() # 目前環境中有哪些變數
 rm() # 移除環境中的變數
