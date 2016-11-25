@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+
+
+<meta name="author" content="Yao-Jen Kuo" />
+
+<meta name="date" content="2016-11-25" />
+
+<title>單一變數與函數 - 隨堂練習</title>
+
+<script src="ch2_exercise_files/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="ch2_exercise_files/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<script src="ch2_exercise_files/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="ch2_exercise_files/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="ch2_exercise_files/bootstrap-3.3.5/shim/respond.min.js"></script>
+
+<style type="text/css">code{white-space: pre;}</style>
+<link rel="stylesheet"
+      href="ch2_exercise_files/highlight/default.css"
+      type="text/css" />
+<script src="ch2_exercise_files/highlight/highlight.js"></script>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+<script type="text/javascript">
+if (window.hljs && document.readyState && document.readyState === "complete") {
+   window.setTimeout(function() {
+      hljs.initHighlighting();
+   }, 0);
+}
+</script>
+
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+
+</head>
+
+<body>
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+  height: auto;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+</style>
+
+
+
+<div class="container-fluid main-container">
+
+<!-- tabsets -->
+<script src="ch2_exercise_files/navigation-1.1/tabsets.js"></script>
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+</script>
+
+<!-- code folding -->
+
+
+
+
+
+
+<div class="fluid-row" id="header">
+
+
+
+<h1 class="title toc-ignore">單一變數與函數 - 隨堂練習</h1>
+<h4 class="author"><em>Yao-Jen Kuo</em></h4>
+<h4 class="date"><em>2016-11-25</em></h4>
+
+</div>
+
+
+<script src="https://cdn.datacamp.com/datacamp-light-latest.min.js"></script>
+<div class="section level2">
+<h2>換算公里與英里</h2>
+<p>Tony 是長跑的愛好者，他常常在美國的跑步論壇搜尋訓練相關資訊，但是這些資訊都是用英里（mile）計算，他不知道全程馬拉松 42.195 公里換算成英里是多少？讓我們用 R 語言的命令列當作計算機來幫助他吧！</p>
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIDEgXHU1MTZjXHU5MWNjXHU3YjQ5XHU2NWJjIDAuNjIxMzcxMTkyIFx1ODJmMVx1OTFjY1xua21fdG9fbWlsZSA8LSBcblxuIyBcdTYyOGEga21fdG9fbWlsZSBcdTUzNzBcdTUxZmFcdTU3MjhcdTU0N2RcdTRlZTRcdTUyMTdcblxuXG4jIFx1NTE2OFx1N2EwYlx1OTlhY1x1NjJjOVx1Njc3ZVx1OGRkZFx1OTZlMlx1NGVlNVx1NTE2Y1x1OTFjY1x1OGEwOFxuZnVsbF9tYXJhdGhvbl9rbSA8LSA0Mi4xOTVcblxuIyBcdTUxNjhcdTdhMGJcdTk5YWNcdTYyYzlcdTY3N2VcdThkZGRcdTk2ZTJcdTRlZTVcdTgyZjFcdTkxY2NcdThhMDhcbmZ1bGxfbWFyYXRob25fbWlsZSA8LSBcbiAgXG4jIFx1NjI4YSBmdWxsX21hcmF0aG9uX21pbGUgXHU1MzcwXHU1MWZhXHU0Zjg2Iiwic29sdXRpb24iOiIjIDEgXHU1MTZjXHU5MWNjXHU3YjQ5XHU2NWJjIDAuNjIxMzcxMTkyIFx1ODJmMVx1OTFjY1xua21fdG9fbWlsZSA8LSAwLjYyMTM3MTE5MlxuXG4jIFx1NjI4YSBrbV90b19taWxlIFx1NTM3MFx1NTFmYVx1NTcyOFx1NTQ3ZFx1NGVlNFx1NTIxN1xua21fdG9fbWlsZVxuXG4jIFx1NTE2OFx1N2EwYlx1OTlhY1x1NjJjOVx1Njc3ZVx1OGRkZFx1OTZlMlx1NGVlNVx1NTE2Y1x1OTFjY1x1OGEwOFxuZnVsbF9tYXJhdGhvbl9rbSA8LSA0Mi4xOTVcblxuIyBcdTUxNjhcdTdhMGJcdTk5YWNcdTYyYzlcdTY3N2VcdThkZGRcdTk2ZTJcdTRlZTVcdTgyZjFcdTkxY2NcdThhMDhcbmZ1bGxfbWFyYXRob25fbWlsZSA8LSBmdWxsX21hcmF0aG9uX2ttICoga21fdG9fbWlsZVxuICBcbiMgXHU2MjhhXHU3YjU0XHU2ODQ4XHU1MzcwXHU1MWZhXHU0Zjg2XG5mdWxsX21hcmF0aG9uX21pbGUiLCJzY3QiOiJ0ZXN0X29iamVjdChcImttX3RvX21pbGVcIiwgaW5jb3JyZWN0X21zZyA9IFwiQXNzaWduIDAuNjIxMzcxMTkyIHRvIGBrbV90b19taWxlYC5cIilcbnRlc3Rfb2JqZWN0KFwiZnVsbF9tYXJhdGhvbl9taWxlXCIsIGluY29ycmVjdF9tc2cgPSBcIkNhbGN1bGF0ZSBgZnVsbF9tYXJhdGhvbl9taWxlYCBieSBtdWx0aXBseWluZyBgZnVsbF9tYXJhdGhvbl9rbWAgd2l0aCBga21fdG9fbWlsZWAuXCIpXG50ZXN0X291dHB1dF9jb250YWlucyhcImttX3RvX21pbGVcIiwgaW5jb3JyZWN0X21zZyA9IFwiTWFrZSBzdXJlIHRvIHByaW50IGBrbV90b19taWxlYC5cIilcbnRlc3Rfb3V0cHV0X2NvbnRhaW5zKFwiZnVsbF9tYXJhdGhvbl9taWxlXCIsIGluY29ycmVjdF9tc2cgPSBcIk1ha2Ugc3VyZSB0byBwcmludCBgZnVsbF9tYXJhdGhvbl9taWxlYC5cIilcbnN1Y2Nlc3NfbXNnKFwiVGhhbmsgeW91IHNvIG11Y2gsIG5vdyBUb255IGtub3dzIHRoYXQgdGhlIGRpc3RhbmNlIG9mIGEgZnVsbCBtYXJhdGhvbiBjb3Vyc2UgaXMgMjYuMiBtaWxlcyFcIikifQ==
+</div>
+</div>
+
+
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+$(document).ready(function () {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+});
+
+
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
