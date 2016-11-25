@@ -16,36 +16,36 @@ tutorial::go_interactive()
 Tony 是長跑的愛好者，他常常在美國的跑步論壇搜尋訓練相關資訊，但是這些資訊都是用英里（mile）計算，他不知道全程馬拉松 42.195 公里換算成英里是多少？讓我們用 R 語言的命令列當作計算機來幫助他吧！
 
 ```{r ex="km_mile_converter", type="sample-code"}
-# 1 公里等於 0.621371192 英里
+# 1 km equals to 0.621371192 miles
 km_to_mile <- 
 
-# 把 km_to_mile 印出在命令列
+# Print km_to_mile in the console
 
 
-# 全程馬拉松距離以公里計
+# The distance of full marathon measured in km
 full_marathon_km <- 42.195
 
-# 全程馬拉松距離以英里計
+# The distance of full marathon measured in mile
 full_marathon_mile <- 
   
-# 把 full_marathon_mile 印出來
+# Print full_marathon_mile in the console
 
 ```
 
 ```{r ex="km_mile_converter", type="solution"}
-# 1 公里等於 0.621371192 英里
+# 1 km equals to 0.621371192 miles
 km_to_mile <- 0.621371192
 
-# 把 km_to_mile 印出在命令列
+# Print km_to_mile in the console
 km_to_mile
 
-# 全程馬拉松距離以公里計
+# The distance of full marathon measured in km
 full_marathon_km <- 42.195
 
-# 全程馬拉松距離以英里計
+# The distance of full marathon measured in mile
 full_marathon_mile <- full_marathon_km * km_to_mile
   
-# 把答案印出來
+# Print full_marathon_mile in the console
 full_marathon_mile
 ```
 
