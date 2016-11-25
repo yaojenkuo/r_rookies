@@ -66,7 +66,7 @@ deb-src http://ftp.ubuntu-tw.net/mirror/ubuntu/ trusty main
 ```
 cd ~/Downloads
 sudo apt-get install libjpeg62
-sudo dpkg -i rstudio-0.99.893-amd64.deb
+sudo dpkg -i "YOUR RSTUDIO INSTALLER"
 ```
 
 ## 安裝 Git(OS X)
