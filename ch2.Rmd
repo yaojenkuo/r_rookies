@@ -6,7 +6,7 @@ output: slidy_presentation
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE, results = 'hide')
+knitr::opts_chunk$set(echo = TRUE, results = 'hide', warning = FALSE)
 ```
 
 ## 計算機
@@ -25,7 +25,7 @@ knitr::opts_chunk$set(echo = TRUE, results = 'hide')
 3 %% 2 # 餘數
 ```
 
-## 建立變數（1）
+## 建立變數
 
 - R 語言的使用者習慣使用 `<-` 來建立變數
 - 在 RStudio 中可以按 `Alt 與 -` 來產生 `<-` 符號
@@ -53,7 +53,7 @@ a = 2
 a
 ```
 
-## 單一變數類型（1）
+## 單一變數類型
 
 - R 語言的基本變數類型
   - 數字（numeric）
