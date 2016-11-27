@@ -118,7 +118,6 @@ test_output_contains("class(my_num)", incorrect_msg = msg)
 test_output_contains("class(my_int)", incorrect_msg = msg)
 test_output_contains("class(my_logi)", incorrect_msg = msg)
 test_output_contains("class(my_char)", incorrect_msg = msg)
-success_msg("Great!")
 ```
 
 ## 運算並觀察類型
