@@ -6,7 +6,7 @@
   <meta http-equiv="Content-Style-Type" content="text/css" />
   <meta name="generator" content="pandoc" />
   <meta name="author" content="Yao-Jen Kuo" />
-  <meta name="date" content="2016-11-26" />
+  <meta name="date" content="2016-11-27" />
   <title>基本資料結構</title>
   <style type="text/css">code{white-space: pre;}</style>
   <style type="text/css">
@@ -55,17 +55,19 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
   <p class="author">
 Yao-Jen Kuo
   </p>
-  <p class="date">2016-11-26</p>
+  <p class="date">2016-11-27</p>
 </div>
 <div class="slide section level2">
 <h1>資料結構</h1>
 <ul>
-<li>R 語言有一些基本的資料結構來儲存我們上一章說明的資料類型:</li>
+<li>R 語言有一些基本的資料結構來儲存我們上一章說明的資料類型:
+<ul>
 <li>Vector（向量）</li>
 <li>Factor（因素向量）</li>
 <li>Matrix（矩陣）</li>
 <li>Data Frame（資料框）</li>
 <li>List（清單）</li>
+</ul></li>
 </ul>
 </div>
 <div id="vector" class="slide section level2">
@@ -173,6 +175,103 @@ temperature_factor &lt;-<span class="st"> </span><span class="kw">factor</span>(
 temperature_factor
 <span class="kw">class</span>(temperature_factor)
 temperature_factor[<span class="dv">1</span>] &gt;<span class="st"> </span>temperature_factor[<span class="dv">2</span>]</code></pre></div>
+</div>
+<div id="matrix" class="slide section level2">
+<h1>Matrix（矩陣）</h1>
+<ul>
+<li>一個 m * n 的矩陣指的是有 m 列、n 欄</li>
+<li>使用 <code>matrix()</code> 函數可以將向量轉換為矩陣</li>
+<li>指定兩個參數 <code>nrow =</code> 與 <code>ncol =</code></li>
+<li>預設是以<strong>列的方向</strong>將元素填入矩陣</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">my_vector &lt;-<span class="st"> </span><span class="dv">1</span>:<span class="dv">8</span>
+my_matrix &lt;-<span class="st"> </span><span class="kw">matrix</span>(my_vector, <span class="dt">nrow =</span> <span class="dv">4</span>, <span class="dt">ncol =</span> <span class="dv">2</span>)
+my_matrix &lt;-<span class="st"> </span><span class="kw">matrix</span>(my_vector, <span class="dt">nrow =</span> <span class="dv">2</span>, <span class="dt">ncol =</span> <span class="dv">4</span>)
+my_matrix &lt;-<span class="st"> </span><span class="kw">matrix</span>(my_vector, <span class="dt">nrow =</span> <span class="dv">2</span>, <span class="dt">ncol =</span> <span class="dv">4</span>, <span class="dt">byrow =</span> <span class="ot">TRUE</span>) <span class="co"># byrow 預設為 FALSE</span></code></pre></div>
+</div>
+<div id="matrix2" class="slide section level2">
+<h1>Matrix（矩陣）（2）</h1>
+<ul>
+<li>同樣使用中括號 <code>[ , ]</code> 與邏輯值向量將指定元素選擇出來</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">my_vector &lt;-<span class="st"> </span><span class="dv">1</span>:<span class="dv">8</span>
+my_matrix &lt;-<span class="st"> </span><span class="kw">matrix</span>(my_vector, <span class="dt">nrow =</span> <span class="dv">2</span>, <span class="dt">ncol =</span> <span class="dv">4</span>)
+my_matrix[, <span class="dv">3</span>]
+my_matrix[<span class="dv">2</span>, ]
+my_matrix[<span class="dv">2</span>, <span class="dv">3</span>]
+my_matrix[<span class="dv">2</span>, <span class="dv">2</span>:<span class="dv">4</span>]
+larger_than_4 &lt;-<span class="st"> </span>my_matrix &gt;<span class="st"> </span><span class="dv">4</span>
+my_matrix[larger_than_4]</code></pre></div>
+</div>
+<div id="dataframe" class="slide section level2">
+<h1>Dataframe（資料框）</h1>
+<ul>
+<li>資料框是非常重要的資料結構，如果你是 SAS/SPSS/Stata 的使用者，你可以想成是資料集（dataset）。</li>
+<li>一個資料框中可以包含不同資料類別的變數</li>
+<li>使用 <code>data.frame()</code> 函數可以建立資料框（向量長度要相同）</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">name &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;蒙其D魯夫&quot;</span>, <span class="st">&quot;羅羅亞索隆&quot;</span>, <span class="st">&quot;娜美&quot;</span>, <span class="st">&quot;賓什莫克香吉士&quot;</span>)
+is_female &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="ot">FALSE</span>, <span class="ot">FALSE</span>, <span class="ot">TRUE</span>, <span class="ot">FALSE</span>)
+age &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">19</span>, <span class="dv">21</span>, <span class="dv">20</span>, <span class="dv">21</span>)
+one_piece_df &lt;-<span class="st"> </span><span class="kw">data.frame</span>(name, is_female, age)
+one_piece_df
+<span class="kw">View</span>(one_piece_df)</code></pre></div>
+</div>
+<div id="dataframe2" class="slide section level2">
+<h1>Dataframe（資料框）（2）</h1>
+<ul>
+<li>使用中括號 <code>[ , ]</code> 與 <code>$</code> 可以很靈活地取出資料框中的元素</li>
+<li>利用邏輯值向量可以很靈活地取出列數</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">name &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;蒙其D魯夫&quot;</span>, <span class="st">&quot;羅羅亞索隆&quot;</span>, <span class="st">&quot;娜美&quot;</span>, <span class="st">&quot;賓什莫克香吉士&quot;</span>)
+is_female &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="ot">FALSE</span>, <span class="ot">FALSE</span>, <span class="ot">TRUE</span>, <span class="ot">FALSE</span>)
+age &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">19</span>, <span class="dv">21</span>, <span class="dv">20</span>, <span class="dv">21</span>)
+one_piece_df &lt;-<span class="st"> </span><span class="kw">data.frame</span>(name, is_female, age)
+one_piece_df[, <span class="dv">3</span>]
+one_piece_df[, <span class="st">&quot;age&quot;</span>]
+one_piece_df$age
+one_piece_df[<span class="dv">1</span>, ]
+
+<span class="co"># 練習用邏輯值向量</span>
+is_luffy &lt;-<span class="st"> </span>one_piece_df$name ==<span class="st"> &quot;蒙其D魯夫&quot;</span>
+is_luffy
+one_piece_df[is_luffy, ]
+one_piece_df[one_piece_df$age ==<span class="st"> </span><span class="dv">21</span>, ] <span class="co"># 熟了就寫快一點</span></code></pre></div>
+</div>
+<div id="dataframe3" class="slide section level2">
+<h1>Dataframe（資料框）（3）</h1>
+<ul>
+<li>一些常用的 Dataframe 函數，這些函數可以幫助你很快掌握一個資料框</li>
+<li>R 語言有一些內建的資料集，像是 <code>cars</code> ， <code>mtcars</code> 還有 <code>iris</code> … 等</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">dim</span>(iris)
+<span class="kw">nrow</span>(iris)
+<span class="kw">ncol</span>(iris)
+<span class="kw">str</span>(iris)
+<span class="kw">head</span>(iris)
+<span class="kw">tail</span>(iris, <span class="dt">n =</span> <span class="dv">8</span>)
+<span class="kw">names</span>(iris)</code></pre></div>
+</div>
+<div id="list" class="slide section level2">
+<h1>List（清單）</h1>
+<ul>
+<li>清單可以包含我們前面介紹的資料結構</li>
+<li>利用中括號 <code>[]</code> 與雙重中括號 <code>[[]]</code> 來選擇元素</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># 建立一個清單 my_list</span>
+char_vector &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;I&quot;</span>, <span class="st">&quot;Love&quot;</span>, <span class="st">&quot;R&quot;</span>)
+my_vector &lt;-<span class="st"> </span><span class="dv">1</span>:<span class="dv">8</span>
+my_matrix &lt;-<span class="st"> </span><span class="kw">matrix</span>(my_vector, <span class="dt">nrow =</span> <span class="dv">2</span>, <span class="dt">ncol =</span> <span class="dv">4</span>)
+name &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;蒙其D魯夫&quot;</span>, <span class="st">&quot;羅羅亞索隆&quot;</span>, <span class="st">&quot;娜美&quot;</span>, <span class="st">&quot;賓什莫克香吉士&quot;</span>)
+is_female &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="ot">FALSE</span>, <span class="ot">FALSE</span>, <span class="ot">TRUE</span>, <span class="ot">FALSE</span>)
+age &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">19</span>, <span class="dv">21</span>, <span class="dv">20</span>, <span class="dv">21</span>)
+one_piece_df &lt;-<span class="st"> </span><span class="kw">data.frame</span>(name, is_female, age)
+my_list &lt;-<span class="st"> </span><span class="kw">list</span>(char_vector, my_matrix, one_piece_df)
+my_list <span class="co"># 看看長什麼樣子</span>
+my_list[<span class="dv">1</span>]
+my_list[[<span class="dv">1</span>]]
+my_list[[<span class="dv">2</span>]][<span class="dv">2</span>, <span class="dv">2</span>]
+my_list[[<span class="dv">3</span>]]$name</code></pre></div>
 </div>
 
   <!-- dynamically load mathjax for compatibility with self-contained -->
