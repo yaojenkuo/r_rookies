@@ -235,6 +235,7 @@ my_list[[2]][2, 2]
 my_list[[3]]$name
 ```
 
-## 複習
+## 隨堂練習
 
-[R 語言導論](https://www.datacamp.com/community/open-courses/r-%E8%AA%9E%E8%A8%80%E5%B0%8E%E8%AB%96#gs.SRpeD9E)
+- [基本資料結構 - 隨堂練習](https://yaojenkuo.github.io/r_rookies/ch3_exercise)
+- [R 語言導論](https://www.datacamp.com/community/open-courses/r-%E8%AA%9E%E8%A8%80%E5%B0%8E%E8%AB%96#gs.SRpeD9E)
