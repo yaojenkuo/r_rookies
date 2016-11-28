@@ -1,0 +1,67 @@
+---
+title: "讀取不同的資料格式"
+author: "Yao-Jen Kuo"
+date: "`r Sys.Date()`"
+output: slidy_presentation
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, results = 'hide', warning = FALSE)
+```
+
+## 讀取 csv
+
+- 這是實務中最常運用的方法，csv 是 comma-separated values 的縮寫
+- 利用 `read.csv()` 函數
+
+```{r}
+?read.csv#常用的重要函數
+accidentList <- read.csv("/Users/tkuo/ntu_train/NTUTrainRL1/data/accident_list.csv", header=TRUE)
+```
+
+## 讀取 csv (2)
+
+- 欄位屬性可以在讀取資料時設定
+- 練習用相對路徑
+
+```{r}
+setwd("/Users/tkuo/ntu_train/NTUTrainRL1")#set working directory
+accidentList <- read.csv("data/accident_list.csv", header=TRUE, sep=",", colClasses=c("character", "factor", "factor", "factor", "factor", "integer", "factor", "factor"))
+str(accidentList)
+```
+
+## 讀取 tsv
+
+## 讀取 txt
+
+## 載入 Excel 試算表
+
+- 使用 `readxl` 套件
+- `excel_sheets()` 函數可以顯示試算表清單
+
+```{r, results='hide'}
+#install.packages("readxl")
+library(readxl)
+excel_sheets("data/accident_list.xlsx")
+```
+
+## 載入 Excel 試算表 (2)
+
+- `read_excel()` 函數可以載入試算表
+
+```{r, results='hide'}
+sheet <- read_excel("data/accident_list.xlsx")
+?read_excel
+```
+
+## 載入 SAS 資料集
+
+- 使用 `haven()` 套件
+- `read_sas()` 函數可以載入 SAS 資料集
+
+```{r}
+#install.packages("haven")
+library(haven)
+sasdat <- read_sas("data/accident_list.sas7bdat")
+```
+
