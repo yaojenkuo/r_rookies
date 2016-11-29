@@ -180,10 +180,10 @@ class(my_num + my_logi)
 
 ```{r ex="calculate_variables", type="sct"}
 test_output_contains("my_num + my_int", incorrect_msg = "Did you add `my_num` with `my_int`?")
-test_output_contains("my_int + my_logi", incorrect_msg = "Did you add `my_int` with `my_logi`?")
+#test_output_contains("my_int + my_logi", incorrect_msg = "Did you add `my_int` with `my_logi`?")
 test_output_contains("my_logi <- FALSE", incorrect_msg = "Did you re-assign FALSE to `my_logi`?")
 test_output_contains("my_num + my_logi", incorrect_msg = "Did you add `my_num` with `my_logi`?")
-msg = "Did you call class() to check the result?"
+msg <- "Did you call class() to check the result?"
 test_output_contains("class(my_num + my_int)", incorrect_msg = msg)
 test_output_contains("class(my_int + my_logi)", incorrect_msg = msg)
 test_output_contains("class(my_num + my_logi)", incorrect_msg = msg)
