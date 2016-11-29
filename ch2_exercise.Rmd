@@ -17,7 +17,7 @@ Tony 不知道全程馬拉松 42.195 公里換算成英里是多少？請用 R �
 
 ```{r ex="km_mile_converter", type="sample-code"}
 # 1 km equals to 0.621371192 miles
-km_to_mile <- 
+km_to_mile <- ___
 
 # Print km_to_mile in the console
 
@@ -26,7 +26,7 @@ km_to_mile <-
 full_marathon_km <- 42.195
 
 # The distance of full marathon measured in mile
-full_marathon_mile <- 
+full_marathon_mile <- ___
   
 # Print full_marathon_mile in the console
 
@@ -63,25 +63,25 @@ success_msg("Thank you so much, now Tony knows that the distance of a full marat
 
 ```{r ex="create_variables", type="sample-code"}
 # Create a numeric variable my_num equals to 8
-my_num <- 
+my_num <- ___
 
 # Create a integer variable my_int equals to 7L
-my_int <- 
+my_int <- ___
 
 # Create a logical variable my_logi equals to TRUE
-my_logi <- 
+my_logi <- ___
 
 # Create a character variable my_char equals to "Learn R the easy way!"
-my_char <- 
+my_char <- ___
   
 # Use function: ls() to list all the variables we just created
 
 
 # Use function: class() to check the variable types respectively
-class()
-class()
-class()
-class()
+class(___)
+class(___)
+class(___)
+class(___)
 ```
 
 ```{r ex="create_variables", type="solution"}
