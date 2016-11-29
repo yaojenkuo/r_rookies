@@ -106,6 +106,6 @@ one_piece_df[one_piece_df$name == "Usopp" | one_piece_df$name == "Franky", ]
 ```{r ex="dataframe_exercise", type="sct"}
 test_output_contains("str(one_piece_df)", incorrect_msg = "Did you use `str()` to examine the structure of `one_piece_df`?")
 test_output_contains("summary(one_piece_df)", incorrect_msg = "Did you use `summary()` to examine the summary of `one_piece_df`?")
-test_output_contains("one_piece$name", incorrect_msg = "Did you select the `name` variable from `one_piece_df` using $ or indexing?")
+test_output_contains("one_piece_df$name", incorrect_msg = "Did you select the `name` variable from `one_piece_df` using $ or indexing?")
 test_output_contains("one_piece_df[one_piece_df$name == \"Usopp\" | one_piece_df$name == \"Franky\", ]", incorrect_msg = "Did you select the rows for Usopp and Franky?")
 ```
