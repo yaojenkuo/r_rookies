@@ -54,12 +54,7 @@ my.max(my_vector)
 ```
 
 ```{r ex="max_function", type="sct"}
-test_output_contains("my.max <- function(input_vector) {
-  # Use sort() to sort input_vector with descending order and assign to sorted_vector
-  sorted_vector <- sort(input_vector, decreasing = TRUE)
-  # Return the first scalar of sorted_vector
-  return(sorted_vector[1])
-}", incorrect_msg = "Did you correctly declare the function `my.max()`?")
+test_function_definition("my.max", undefined_msg = "Did you correctly declare the function `my.max()`?")
 test_output_contains("my_vector", incorrect_msg = "Did you print `my_vector` out?")
 test_output_contains("my.max(my_vector)", incorrect_msg = "Did you call `my.max()` on `my_vector` correctly?")
 ```
