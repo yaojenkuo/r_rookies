@@ -53,7 +53,7 @@ deb-src http://ftp.ubuntu-tw.net/mirror/ubuntu/ trusty main
 
 ## 安裝 RStudio(OS X)
 
-- 從 [RStudio](https://www.rstudio.com/products/rstudio/download3/) 下載 .dmg 檔來進行安裝
+- 從 [RStudio](https://www.rstudio.com/products/rstudio/download3/) 下載 .pkg 檔來進行安裝
 
 ## 安裝 RStudio(Windows)
 
@@ -76,7 +76,7 @@ sudo dpkg -i "YOUR RSTUDIO INSTALLER"
 
 ## 安裝 Git(Windows)
 
-- 至 [git](https://git-scm.com/download/mac) 下載 .exe 檔來進行安裝
+- 至 [git](https://git-scm.com/download/win) 下載 .exe 檔來進行安裝
 
 ## 安裝 Git(Linux，以 UBUNTU 14.04 LTS 為例)
 
@@ -94,7 +94,7 @@ sudo apt-get install git
 - 告訴 Git 你的帳戶與電子信箱
 ```
 git config --global user.name "YOUR NAME"
-git config --global user.email "YOUR EMAIL ADDRESS"
+git config --global user.email YOUR EMAIL ADDRESS
 ```
 
 ## 建立一個遠端 repository
