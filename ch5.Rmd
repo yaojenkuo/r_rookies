@@ -147,3 +147,7 @@ unsorted_vector <- round(runif(10) * 100)
 # 對該隨機向量做遞增排序
 exchange.sort.asc(unsorted_vector)
 ```
+
+## 隨堂練習
+
+[自訂函數 - 隨堂練習](https://yaojenkuo.github.io/r_rookies/ch5_exercise)

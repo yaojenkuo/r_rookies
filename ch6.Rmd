@@ -13,55 +13,63 @@ knitr::opts_chunk$set(echo = TRUE, results = 'hide', warning = FALSE)
 
 - 這是實務中最常運用的方法，csv 是 comma-separated values 的縮寫
 - 利用 `read.csv()` 函數
+- `header = TRUE` 告訴 R 語言這個資料的第一列（The first row）是變數名稱
 
 ```{r}
-?read.csv#常用的重要函數
-accidentList <- read.csv("/Users/tkuo/ntu_train/NTUTrainRL1/data/accident_list.csv", header=TRUE)
+titanic_csv <- read.csv("https://storage.googleapis.com/r_rookies/kaggle_titanic_train.csv", header=TRUE)
+str(titanic_csv)
 ```
 
 ## 讀取 csv (2)
 
-- 欄位屬性可以在讀取資料時設定
-- 練習用相對路徑
+- 欄位屬性可以在讀取資料時設定，指定 `colClasses = ` 這個參數，輸入一個字串向量。
 
 ```{r}
-setwd("/Users/tkuo/ntu_train/NTUTrainRL1")#set working directory
-accidentList <- read.csv("data/accident_list.csv", header=TRUE, sep=",", colClasses=c("character", "factor", "factor", "factor", "factor", "integer", "factor", "factor"))
-str(accidentList)
+titanic_csv <- read.csv("https://storage.googleapis.com/r_rookies/kaggle_titanic_train.csv", header=TRUE, colClasses = c("integer", "integer", "integer", "character", "factor", "numeric", "integer", "integer", "character", "numeric", "character", "factor"))
+str(titanic_csv)
 ```
 
 ## 讀取 tsv
 
-## 讀取 txt
+- tsv 是 tab-separated values 的縮寫
+- 這時我們改用一個應用更為廣泛的函數 `read.table()`
+- `sep = ` 這個參數告訴 R 語言變數之間的分隔符號為何
+- `quote = ` 這個參數告訴 R 語言不要理會引號
+
+```{r}
+titanic_tsv <- read.table("https://storage.googleapis.com/r_rookies/kaggle_titanic_train.tsv", sep = "\t", header = TRUE, quote = "")
+str(titanic_tsv)
+```
+
+## 讀取文字
+
+- 利用 `readLines()` 函數
+- 利用 `n = ` 的參數選項來限制讀入行數
+
+```{r}
+char_vector <- readLines("https://tw.stock.yahoo.com/d/i/rank.php?t=pri&e=tse&n=100", n = 10)
+```
 
 ## 載入 Excel 試算表
 
-- 使用 `readxl` 套件
-- `excel_sheets()` 函數可以顯示試算表清單
+- 使用 `readxl` 套件中的 `read_excel` 函數
 
 ```{r, results='hide'}
 #install.packages("readxl")
 library(readxl)
-excel_sheets("data/accident_list.xlsx")
-```
-
-## 載入 Excel 試算表 (2)
-
-- `read_excel()` 函數可以載入試算表
-
-```{r, results='hide'}
-sheet <- read_excel("data/accident_list.xlsx")
-?read_excel
+titanic_xlsx <- read_excel("~/Downloads/kaggle_titanic_train.xlsx")
 ```
 
 ## 載入 SAS 資料集
 
-- 使用 `haven()` 套件
-- `read_sas()` 函數可以載入 SAS 資料集
+- 使用 `haven()` 套件中的 `read_sas()` 函數可以載入 SAS 資料集
 
 ```{r}
 #install.packages("haven")
 library(haven)
-sasdat <- read_sas("data/accident_list.sas7bdat")
+smoking_sas_data <- read_sas("https://storage.googleapis.com/r_rookies/smoking.sas7bdat")
 ```
 
+## 隨堂練習
+
+[讀取不同的資料格式 - 隨堂練習](https://yaojenkuo.github.io/r_rookies/ch6_exercise)
