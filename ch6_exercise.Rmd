@@ -1,0 +1,95 @@
+---
+title: "讀取不同的資料格式 - 隨堂練習"
+author: "Yao-Jen Kuo"
+date: "`r Sys.Date()`"
+output: 
+  html_document:
+    self_contained: false
+---
+
+```{r, include=FALSE}
+tutorial::go_interactive()
+```
+
+## 讀取 csv 檔案
+
+我在 Google Cloud Platform 放置了一個 csv 檔案，請把它讀取為資料框。
+
+```{r, ex="read_csv", type="sample-code"}
+# Specify the url of the data
+url <- "https://storage.googleapis.com/r_rookies/kaggle_titanic_train.csv"
+
+# Use read.csv() function to read in the data
+titanic_df <- read.csv(___, header = ___)
+
+# Use str() function to see the structure of titanic_df
+
+
+# Use summary() function to see the descriptive statistics of titanic_df
+
+```
+
+```{r, ex="read_csv", type="solution"}
+# Specify the url of the data
+url <- "https://storage.googleapis.com/r_rookies/kaggle_titanic_train.csv"
+
+# Use read.csv() function to read in the data
+titanic_df <- read.csv(url, header = TRUE)
+
+# Use str() function to see the structure of titanic_df
+str(titanic_df)
+
+# Use summary() function to see the descriptive statistics of titanic_df
+summary(titanic_df)
+```
+
+```{r ex="read_csv", type="sct"}
+test_object("titanic_df", incorrect_msg = "Did you correctly read in the csv file?")
+test_output_contains("str(titanic_df)", incorrect_msg = "Did you call function str() on titanic_df?")
+test_output_contains("summary(titanic_df)", incorrect_msg = "Did you call function summary() on titanic_df?")
+```
+
+## 更改讀取的欄位屬性
+
+`read.csv()` 讀入資料會預設將字串以因素向量的類型儲存，我們可以利用 `colClasses = ` 這個參數來做設定。
+
+```{r ex="col_classes", type="sample-code"}
+# Specify the url of the data
+url <- "https://storage.googleapis.com/r_rookies/kaggle_titanic_train.csv"
+
+# Specify column classes
+col_classes <- c("integer", "integer", "integer", "character", "factor", "numeric", "integer", "integer", "character", "numeric", "character", "factor")
+
+# Use read.csv() function to read in the data
+titanic_df <- read.csv(___, header = ___, colClasses = ___)
+
+# Use str() function to see the structure of titanic_df
+str(___)
+
+# Use summary() function to see the descriptive statistics of titanic_df
+summary(___)
+```
+
+```{r ex="col_classes", type="solution"}
+# Specify the url of the data
+url <- "https://storage.googleapis.com/r_rookies/kaggle_titanic_train.csv"
+
+# Specify column classes
+col_classes <- c("integer", "integer", "integer", "character", "factor", "numeric", "integer", "integer", "character", "numeric", "character", "factor")
+
+# Use read.csv() function to read in the data
+titanic_df <- read.csv(url, header = TRUE, colClasses = col_classes)
+
+# Use str() function to see the structure of titanic_df
+str(titanic_df)
+
+# Use summary() function to see the descriptive statistics of titanic_df
+summary(titanic_df)
+```
+
+```{r ex="col_classes"}
+test_function("read.csv", args = c("x", "header", "colClasses"), incorrect_msg = "Did you call read.csv() with correct arguments?")
+test_object("titanic_df", incorrect_msg = "Did you correctly read in the csv file?")
+test_output_contains("str(titanic_df)", incorrect_msg = "Did you call function str() on titanic_df?")
+test_output_contains("summary(titanic_df)", incorrect_msg = "Did you call function summary() on titanic_df?")
+```

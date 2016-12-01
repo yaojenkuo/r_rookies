@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+
+
+<meta name="author" content="Yao-Jen Kuo" />
+
+<meta name="date" content="2016-12-01" />
+
+<title>讀取不同的資料格式 - 隨堂練習</title>
+
+<script src="ch6_exercise_files/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="ch6_exercise_files/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<script src="ch6_exercise_files/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="ch6_exercise_files/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="ch6_exercise_files/bootstrap-3.3.5/shim/respond.min.js"></script>
+
+<style type="text/css">code{white-space: pre;}</style>
+<link rel="stylesheet"
+      href="ch6_exercise_files/highlight/default.css"
+      type="text/css" />
+<script src="ch6_exercise_files/highlight/highlight.js"></script>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+<script type="text/javascript">
+if (window.hljs && document.readyState && document.readyState === "complete") {
+   window.setTimeout(function() {
+      hljs.initHighlighting();
+   }, 0);
+}
+</script>
+
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+
+</head>
+
+<body>
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+  height: auto;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+</style>
+
+
+
+<div class="container-fluid main-container">
+
+<!-- tabsets -->
+<script src="ch6_exercise_files/navigation-1.1/tabsets.js"></script>
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+</script>
+
+<!-- code folding -->
+
+
+
+
+
+
+<div class="fluid-row" id="header">
+
+
+
+<h1 class="title toc-ignore">讀取不同的資料格式 - 隨堂練習</h1>
+<h4 class="author"><em>Yao-Jen Kuo</em></h4>
+<h4 class="date"><em>2016-12-01</em></h4>
+
+</div>
+
+
+<script src="https://cdn.datacamp.com/datacamp-light-latest.min.js"></script>
+<div id="-csv-" class="section level2">
+<h2>讀取 csv 檔案</h2>
+<p>我在 Google Cloud Platform 放置了一個 csv 檔案，請把它讀取為資料框。</p>
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIFNwZWNpZnkgdGhlIHVybCBvZiB0aGUgZGF0YVxudXJsIDwtIFwiaHR0cHM6Ly9zdG9yYWdlLmdvb2dsZWFwaXMuY29tL3Jfcm9va2llcy9rYWdnbGVfdGl0YW5pY190cmFpbi5jc3ZcIlxuXG4jIFVzZSByZWFkLmNzdigpIGZ1bmN0aW9uIHRvIHJlYWQgaW4gdGhlIGRhdGFcbnRpdGFuaWNfZGYgPC0gcmVhZC5jc3YoX19fLCBoZWFkZXIgPSBfX18pXG5cbiMgVXNlIHN0cigpIGZ1bmN0aW9uIHRvIHNlZSB0aGUgc3RydWN0dXJlIG9mIHRpdGFuaWNfZGZcblxuXG4jIFVzZSBzdW1tYXJ5KCkgZnVuY3Rpb24gdG8gc2VlIHRoZSBkZXNjcmlwdGl2ZSBzdGF0aXN0aWNzIG9mIHRpdGFuaWNfZGYiLCJzb2x1dGlvbiI6IiMgU3BlY2lmeSB0aGUgdXJsIG9mIHRoZSBkYXRhXG51cmwgPC0gXCJodHRwczovL3N0b3JhZ2UuZ29vZ2xlYXBpcy5jb20vcl9yb29raWVzL2thZ2dsZV90aXRhbmljX3RyYWluLmNzdlwiXG5cbiMgVXNlIHJlYWQuY3N2KCkgZnVuY3Rpb24gdG8gcmVhZCBpbiB0aGUgZGF0YVxudGl0YW5pY19kZiA8LSByZWFkLmNzdih1cmwsIGhlYWRlciA9IFRSVUUpXG5cbiMgVXNlIHN0cigpIGZ1bmN0aW9uIHRvIHNlZSB0aGUgc3RydWN0dXJlIG9mIHRpdGFuaWNfZGZcbnN0cih0aXRhbmljX2RmKVxuXG4jIFVzZSBzdW1tYXJ5KCkgZnVuY3Rpb24gdG8gc2VlIHRoZSBkZXNjcmlwdGl2ZSBzdGF0aXN0aWNzIG9mIHRpdGFuaWNfZGZcbnN1bW1hcnkodGl0YW5pY19kZikiLCJzY3QiOiJ0ZXN0X29iamVjdChcInRpdGFuaWNfZGZcIiwgaW5jb3JyZWN0X21zZyA9IFwiRGlkIHlvdSBjb3JyZWN0bHkgcmVhZCBpbiB0aGUgY3N2IGZpbGU/XCIpXG50ZXN0X291dHB1dF9jb250YWlucyhcInN0cih0aXRhbmljX2RmKVwiLCBpbmNvcnJlY3RfbXNnID0gXCJEaWQgeW91IGNhbGwgZnVuY3Rpb24gc3RyKCkgb24gdGl0YW5pY19kZj9cIilcbnRlc3Rfb3V0cHV0X2NvbnRhaW5zKFwic3VtbWFyeSh0aXRhbmljX2RmKVwiLCBpbmNvcnJlY3RfbXNnID0gXCJEaWQgeW91IGNhbGwgZnVuY3Rpb24gc3VtbWFyeSgpIG9uIHRpdGFuaWNfZGY/XCIpIn0=
+</div>
+</div>
+<div class="section level2">
+<h2>更改讀取的欄位屬性</h2>
+<p><code>read.csv()</code> 讀入資料會預設將字串以因素向量的類型儲存，我們可以利用 <code>colClasses =</code> 這個參數來做設定。</p>
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJ0ZXN0X2Z1bmN0aW9uKFwicmVhZC5jc3ZcIiwgYXJncyA9IGMoXCJ4XCIsIFwiaGVhZGVyXCIsIFwiY29sQ2xhc3Nlc1wiKSwgaW5jb3JyZWN0X21zZyA9IFwiRGlkIHlvdSBjYWxsIHJlYWQuY3N2KCkgd2l0aCBjb3JyZWN0IGFyZ3VtZW50cz9cIilcbnRlc3Rfb2JqZWN0KFwidGl0YW5pY19kZlwiLCBpbmNvcnJlY3RfbXNnID0gXCJEaWQgeW91IGNvcnJlY3RseSByZWFkIGluIHRoZSBjc3YgZmlsZT9cIilcbnRlc3Rfb3V0cHV0X2NvbnRhaW5zKFwic3RyKHRpdGFuaWNfZGYpXCIsIGluY29ycmVjdF9tc2cgPSBcIkRpZCB5b3UgY2FsbCBmdW5jdGlvbiBzdHIoKSBvbiB0aXRhbmljX2RmP1wiKVxudGVzdF9vdXRwdXRfY29udGFpbnMoXCJzdW1tYXJ5KHRpdGFuaWNfZGYpXCIsIGluY29ycmVjdF9tc2cgPSBcIkRpZCB5b3UgY2FsbCBmdW5jdGlvbiBzdW1tYXJ5KCkgb24gdGl0YW5pY19kZj9cIikiLCJzb2x1dGlvbiI6IiMgU3BlY2lmeSB0aGUgdXJsIG9mIHRoZSBkYXRhXG51cmwgPC0gXCJodHRwczovL3N0b3JhZ2UuZ29vZ2xlYXBpcy5jb20vcl9yb29raWVzL2thZ2dsZV90aXRhbmljX3RyYWluLmNzdlwiXG5cbiMgU3BlY2lmeSBjb2x1bW4gY2xhc3Nlc1xuY29sX2NsYXNzZXMgPC0gYyhcImludGVnZXJcIiwgXCJpbnRlZ2VyXCIsIFwiaW50ZWdlclwiLCBcImNoYXJhY3RlclwiLCBcImZhY3RvclwiLCBcIm51bWVyaWNcIiwgXCJpbnRlZ2VyXCIsIFwiaW50ZWdlclwiLCBcImNoYXJhY3RlclwiLCBcIm51bWVyaWNcIiwgXCJjaGFyYWN0ZXJcIiwgXCJmYWN0b3JcIilcblxuIyBVc2UgcmVhZC5jc3YoKSBmdW5jdGlvbiB0byByZWFkIGluIHRoZSBkYXRhXG50aXRhbmljX2RmIDwtIHJlYWQuY3N2KHVybCwgaGVhZGVyID0gVFJVRSwgY29sQ2xhc3NlcyA9IGNvbF9jbGFzc2VzKVxuXG4jIFVzZSBzdHIoKSBmdW5jdGlvbiB0byBzZWUgdGhlIHN0cnVjdHVyZSBvZiB0aXRhbmljX2RmXG5zdHIodGl0YW5pY19kZilcblxuIyBVc2Ugc3VtbWFyeSgpIGZ1bmN0aW9uIHRvIHNlZSB0aGUgZGVzY3JpcHRpdmUgc3RhdGlzdGljcyBvZiB0aXRhbmljX2RmXG5zdW1tYXJ5KHRpdGFuaWNfZGYpIn0=
+</div>
+</div>
+
+
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+$(document).ready(function () {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+});
+
+
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
