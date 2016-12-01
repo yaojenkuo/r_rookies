@@ -87,7 +87,7 @@ str(titanic_df)
 summary(titanic_df)
 ```
 
-```{r ex="col_classes"}
+```{r ex="col_classes", type="sct"}
 test_function("read.csv", args = c("x", "header", "colClasses"), incorrect_msg = "Did you call read.csv() with correct arguments?")
 test_object("titanic_df", incorrect_msg = "Did you correctly read in the csv file?")
 test_output_contains("str(titanic_df)", incorrect_msg = "Did you call function str() on titanic_df?")
