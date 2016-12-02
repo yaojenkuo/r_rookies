@@ -148,6 +148,49 @@ unsorted_vector <- round(runif(10) * 100)
 exchange.sort.asc(unsorted_vector)
 ```
 
+## 自訂函數（6）
+
+- 把遞減排序的功能加入自訂函數
+
+```{r}
+# 宣告 exchange.sort 函數
+exchange.sort <- function(input_vector, ascending = TRUE) {
+  input_vector_clone <- input_vector
+  vector_length <- length(input_vector_clone)
+  if (ascending == TRUE) {
+    for (i in 1:(vector_length - 1)) {
+      for (j in (i + 1):vector_length) {
+        if (input_vector_clone[i] > input_vector_clone[j]) {
+          temp <- input_vector_clone[i]
+          input_vector_clone[i] <- input_vector_clone[j]
+          input_vector_clone[j] <- temp
+        }
+      }
+    }
+  } else {
+    for (i in 1:(vector_length - 1)) {
+      for (j in (i + 1):vector_length) {
+        if (input_vector_clone[i] < input_vector_clone[j]) {
+          temp <- input_vector_clone[i]
+          input_vector_clone[i] <- input_vector_clone[j]
+          input_vector_clone[j] <- temp
+        }
+      }
+    }
+  }
+  return(input_vector_clone)
+}
+
+# 產出一組隨機向量
+unsorted_vector <- round(runif(10) * 100)
+
+# 對該隨機向量做遞增排序
+exchange.sort(unsorted_vector)
+
+# 對該隨機向量做遞減排序
+exchange.sort(unsorted_vector, ascending = FALSE)
+```
+
 ## 隨堂練習
 
 [自訂函數 - 隨堂練習](https://yaojenkuo.github.io/r_rookies/ch5_exercise)

@@ -6,7 +6,7 @@
   <meta http-equiv="Content-Style-Type" content="text/css" />
   <meta name="generator" content="pandoc" />
   <meta name="author" content="Yao-Jen Kuo" />
-  <meta name="date" content="2016-11-30" />
+  <meta name="date" content="2016-12-02" />
   <title>自訂函數</title>
   <style type="text/css">code{white-space: pre;}</style>
   <style type="text/css">
@@ -55,7 +55,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
   <p class="author">
 Yao-Jen Kuo
   </p>
-  <p class="date">2016-11-30</p>
+  <p class="date">2016-12-02</p>
 </div>
 <div class="slide section level2">
 <h1>為何要自訂函數</h1>
@@ -190,6 +190,48 @@ unsorted_vector &lt;-<span class="st"> </span><span class="kw">round</span>(<spa
 
 <span class="co"># 對該隨機向量做遞增排序</span>
 <span class="kw">exchange.sort.asc</span>(unsorted_vector)</code></pre></div>
+</div>
+<div id="6" class="slide section level2">
+<h1>自訂函數（6）</h1>
+<ul>
+<li>把遞減排序的功能加入自訂函數</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># 宣告 exchange.sort 函數</span>
+exchange.sort &lt;-<span class="st"> </span>function(input_vector, <span class="dt">ascending =</span> <span class="ot">TRUE</span>) {
+  input_vector_clone &lt;-<span class="st"> </span>input_vector
+  vector_length &lt;-<span class="st"> </span><span class="kw">length</span>(input_vector_clone)
+  if (ascending ==<span class="st"> </span><span class="ot">TRUE</span>) {
+    for (i in <span class="dv">1</span>:(vector_length -<span class="st"> </span><span class="dv">1</span>)) {
+      for (j in (i +<span class="st"> </span><span class="dv">1</span>):vector_length) {
+        if (input_vector_clone[i] &gt;<span class="st"> </span>input_vector_clone[j]) {
+          temp &lt;-<span class="st"> </span>input_vector_clone[i]
+          input_vector_clone[i] &lt;-<span class="st"> </span>input_vector_clone[j]
+          input_vector_clone[j] &lt;-<span class="st"> </span>temp
+        }
+      }
+    }
+  } else {
+    for (i in <span class="dv">1</span>:(vector_length -<span class="st"> </span><span class="dv">1</span>)) {
+      for (j in (i +<span class="st"> </span><span class="dv">1</span>):vector_length) {
+        if (input_vector_clone[i] &lt;<span class="st"> </span>input_vector_clone[j]) {
+          temp &lt;-<span class="st"> </span>input_vector_clone[i]
+          input_vector_clone[i] &lt;-<span class="st"> </span>input_vector_clone[j]
+          input_vector_clone[j] &lt;-<span class="st"> </span>temp
+        }
+      }
+    }
+  }
+  <span class="kw">return</span>(input_vector_clone)
+}
+
+<span class="co"># 產出一組隨機向量</span>
+unsorted_vector &lt;-<span class="st"> </span><span class="kw">round</span>(<span class="kw">runif</span>(<span class="dv">10</span>) *<span class="st"> </span><span class="dv">100</span>)
+
+<span class="co"># 對該隨機向量做遞增排序</span>
+<span class="kw">exchange.sort</span>(unsorted_vector)
+
+<span class="co"># 對該隨機向量做遞減排序</span>
+<span class="kw">exchange.sort</span>(unsorted_vector, <span class="dt">ascending =</span> <span class="ot">FALSE</span>)</code></pre></div>
 </div>
 <div class="slide section level2">
 <h1>隨堂練習</h1>
