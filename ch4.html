@@ -115,7 +115,7 @@ i <span class="co"># 看看 i</span></code></pre></div>
 </ul>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">my_mat &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="dt">nrow =</span> <span class="dv">2</span>, <span class="dt">ncol =</span> <span class="dv">2</span>)
 for (i in <span class="dv">1</span>:<span class="kw">ncol</span>(my_mat)) {
-  for (j in <span class="dv">1</span>:<span class="kw">ncol</span>(my_mat)) {
+  for (j in <span class="dv">1</span>:<span class="kw">nrow</span>(my_mat)) {
     my_mat[i, j] &lt;-<span class="st"> </span>i *<span class="st"> </span>j
   }
 }</code></pre></div>

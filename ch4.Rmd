@@ -65,7 +65,7 @@ i # 看看 i
 ```{r}
 my_mat <- matrix(nrow = 2, ncol = 2)
 for (i in 1:ncol(my_mat)) {
-  for (j in 1:ncol(my_mat)) {
+  for (j in 1:nrow(my_mat)) {
     my_mat[i, j] <- i * j
   }
 }
