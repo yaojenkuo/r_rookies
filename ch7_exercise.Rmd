@@ -54,8 +54,8 @@ test_output_contains("class(bm_2016_date)", incorrect_msg = "Did you use `class(
 練習將兩個資料框 `order_data` 與 `customer_data` 進行內部合併。
 
 ```{r ex="merge_dfs", type="pre-exercise-code"}
-order_data <- read.csv("https://storage.googleapis.com/r_rookies/merge_1.csv")
-customer_data <- read.csv("https://storage.googleapis.com/r_rookies/merge_2.csv")
+order_data <- read.csv("http://storage.googleapis.com/r_rookies/merge_1.csv")
+customer_data <- read.csv("http://storage.googleapis.com/r_rookies/merge_2.csv")
 ```
 
 ```{r ex="merge_dfs", type="sample-code"}
