@@ -52,7 +52,7 @@ runif(5)
 one_to_one_hundred <- 1:100
 summary(one_to_one_hundred)
 min(one_to_one_hundred)
-quantile(one_to_one_hundred, c(0.25, 0.75)) # 25 與 75 分位數
+quantile(one_to_one_hundred, probs = c(0.25, 0.75)) # 25 與 75 分位數
 median(one_to_one_hundred)
 mean(one_to_one_hundred)
 ```
