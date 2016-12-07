@@ -1,0 +1,22 @@
+---
+title: "用 R Markdown 撰寫資料分析報告"
+author: "Yao-Jen Kuo"
+date: "`r Sys.Date()`"
+output: slidy_presentation
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, results = 'hide', warning = FALSE)
+```
+
+## R Markdown 文件的元素
+
+- 標題
+- 引用
+- 程式碼
+- 清單
+- 水平分隔線
+- 表格
+- 連結
+- 圖片
+- 數學方程式
