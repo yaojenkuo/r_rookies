@@ -15,7 +15,7 @@ tutorial::go_interactive()
 
 練習把一個文字（character）轉換成 Date 格式。
 
-```{r, ex="char_transform", type="sample-code"}
+```{r ex="char_transform", type="sample-code"}
 # Create the character
 boston_marathon_2016 <- "2016-04-18"
 
@@ -29,7 +29,7 @@ bm_2016_date <-
 
 ```
 
-```{r, ex="char_transform", type="solution"}
+```{r ex="char_transform", type="solution"}
 # Create the character
 boston_marathon_2016 <- "2016-04-18"
 
