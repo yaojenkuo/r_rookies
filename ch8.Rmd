@@ -1,0 +1,161 @@
+---
+title: "簡單的統計與繪圖"
+author: "Yao-Jen Kuo"
+date: "`r Sys.Date()`"
+output: slidy_presentation
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, results = 'hide', warning = FALSE, fig.show = 'hide')
+```
+
+## 產生隨機數
+
+- `runif()` 函數可以幫你產生 0 到 1之間**均勻分配**的隨機數
+- `rnorm()` 函數可以幫你產生**常態分配**的隨機數
+
+```{r}
+runif(10)
+rnorm(10)
+
+# 轉換成你想要的區間
+runif(10) * 100
+round(runif(10) * 100)
+```
+
+- 覺得抽象的話就把這些隨機數用 `hist()` 畫出來
+
+## 設定隨機種子
+
+- 使用 `set.seed()` 讓你產出的隨機數相同
+
+```{r}
+runif(5)
+runif(5)
+
+set.seed(87)
+runif(5)
+set.seed(87)
+runif(5)
+```
+
+## 簡單的統計函數
+
+- `summary()` 用來算摘要統計
+- `min()` 用來算最小值
+- `max()` 用來算最大值
+- `median()` 用來算中位數
+- `mean()` 用來算平均數
+- `quantile()` 用來算分位數
+
+```{r}
+one_to_one_hundred <- 1:100
+summary(one_to_one_hundred)
+min(one_to_one_hundred)
+quantile(one_to_one_hundred, c(0.25, 0.75)) # 25 與 75 分位數
+median(one_to_one_hundred)
+mean(one_to_one_hundred)
+```
+
+## 繪圖
+
+- Base Plotting System
+
+    - `barplot()` 函數用來繪製長條圖
+    - `hist()` 函數用來繪製直方圖
+    - `plot()` 函數用來繪製散佈圖
+    - `plot(..., type = "l")` 函數用來繪製線圖
+    - `boxplot()` 函數用來繪製盒鬚圖
+    
+- `main = ` 圖的標題
+- `xlab = ` X 軸名稱
+- `ylab = ` Y 軸名稱
+
+```{r}
+# 把資料讀進 R
+titanic_csv <- read.csv("https://storage.googleapis.com/r_rookies/kaggle_titanic_train.csv")
+
+# 長條圖
+barplot(1:10)
+table(titanic_csv$Sex)
+barplot(table(titanic_csv$Sex), main = "Gender Stats on Titanic", xlab = "Gender", ylab = "Number of Passengers")
+
+# 直方圖
+hist(titanic_csv$Age, main = "Age Stats on Titanic", xlab = "Age", ylab = "Number of Passengers")
+
+# 散佈圖
+plot(x = titanic_csv$Age, y = titanic_csv$Fare, main = "Age vs. Fare on Titanic", xlab = "Age", ylab = "Fare")
+
+# 線圖
+start_date <- as.Date("2016-12-01")
+dates <- seq(from = start_date, length.out = 31, by = 1)
+random_numbers <- round(runif(31) * 100)
+plot(dates, random_numbers, type = "l")
+
+# 盒鬚圖
+boxplot(titanic_csv$Age, main = "Age Stats on Titanic", ylab = "Age")
+boxplot(titanic_csv$Age ~ titanic_csv$Sex, main = "Age Stats on Titanic", xlab = "Gender", ylab = "Age")
+```
+
+## 繪圖（2）
+
+- ggplot2
+    - `ggplot()` 函數指定使用資料集資料欄位
+    - `geom_bar()` 函數指定畫長條圖
+    - `geom_histogram()` 函數指定畫直方圖
+    - `geom_point()` 函數指定散佈圖
+    - `geom_line()` 函數指定線圖
+    - `geom_boxplot()` 函數指定盒鬚圖
+
+- `ggtitle()` 函數用來編輯標題
+- `xlab()` 函數用來編輯 X 軸名稱
+- `ylab()` 函數用來編輯 Y 軸名稱
+
+```{r}
+library(ggplot2)
+
+# 把資料讀進 R
+titanic_csv <- read.csv("https://storage.googleapis.com/r_rookies/kaggle_titanic_train.csv")
+
+# 長條圖
+ggplot(titanic_csv, aes(x = Sex)) + geom_bar() + ggtitle("Gender Stats on Titanic") + xlab("Gender") + ylab("Number of Passengers")
+
+# 直方圖
+ggplot(titanic_csv, aes(x = Age)) + geom_histogram() + ggtitle("Age Stats on Titanic") + xlab("Age") + ylab("Number of Passengers")
+
+# 散佈圖
+ggplot(titanic_csv, aes(x = Age, y = Fare)) + geom_point() + ggtitle("Age vs. Fare on Titanic") + xlab("Age") + ylab("Fare")
+
+# 線圖
+start_date <- as.Date("2016-12-01")
+dates <- seq(from = start_date, length.out = 31, by = 1)
+random_numbers <- round(runif(31) * 100)
+line_graph_df <- data.frame(dates, random_numbers)
+ggplot(line_graph_df, aes(x = dates, y = random_numbers)) + geom_line()
+
+# 盒鬚圖
+ggplot(titanic_csv, aes(x = 1, y = Age)) + geom_boxplot() + ggtitle("Age Stats on Titanic")
+ggplot(titanic_csv, aes(x = Sex, y = Age)) + geom_boxplot() + ggtitle("Age Stats on Titanic") + xlab("Gender") + ylab("Age")
+```
+
+## 繪圖（3）
+
+- 利用 `plotly` 套件讓 ggplot2 圖有互動性
+- 將靜態的 ggplot2 物件用 `ggplotly()` 函數加入互動性
+
+```{r message=FALSE}
+#install.packages("plotly")
+library(plotly)
+
+# 把資料讀進 R
+titanic_csv <- read.csv("https://storage.googleapis.com/r_rookies/kaggle_titanic_train.csv")
+
+static_ggplot2 <- ggplot(titanic_csv, aes(x = Age, y = Fare)) + geom_point() + ggtitle("Age vs. Fare on Titanic") + xlab("Age") + ylab("Fare")
+interactive_ggplot2 <- ggplotly(static_ggplot2)
+static_ggplot2
+interactive_ggplot2
+```
+
+## 隨堂練習
+
+- [簡單的統計與繪圖 - 隨堂練習](https://yaojenkuo.github.io/r_rookies/ch8_exercise)
