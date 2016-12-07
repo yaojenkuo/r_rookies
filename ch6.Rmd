@@ -67,7 +67,7 @@ titanic_xlsx <- read_excel("~/Downloads/kaggle_titanic_train.xlsx")
 ```{r}
 #install.packages("haven")
 library(haven)
-smoking_sas_data <- read_sas("https://storage.googleapis.com/r_rookies/smoking.sas7bdat")
+smoking_sas_data <- read_sas("http://storage.googleapis.com/r_rookies/smoking.sas7bdat")
 ```
 
 ## 隨堂練習
