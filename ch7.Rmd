@@ -6,7 +6,7 @@ output: slidy_presentation
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE, results = 'hide', warning = FALSE)
+knitr::opts_chunk$set(echo = TRUE, results = 'hide', warning = FALSE, fig.show = 'hide')
 ```
 
 ## 建立一個 Data Frame 來練習
