@@ -11,12 +11,21 @@ knitr::opts_chunk$set(echo = TRUE, results = 'hide', warning = FALSE)
 
 ## R Markdown 文件的元素
 
+- 粗體與斜體
 - 標題
-- 引用
-- 程式碼
 - 清單
-- 水平分隔線
-- 表格
+- 程式碼
+    - echo: (TRUE; logical)
+    - results: ('markup'; character)
+        - markup
+        - asis
+        - hold
+        - hide
+    - warning: (TRUE; logical)
+    - error: (TRUE; logical)
+    - message: (TRUE; logical)
 - 連結
 - 圖片
-- 數學方程式
+- 引用
+- 水平分隔線
+- 表格

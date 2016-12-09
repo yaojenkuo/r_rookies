@@ -2,11 +2,68 @@
 title: "資料分析實戰"
 author: "Yao-Jen Kuo"
 date: "`r Sys.Date()`"
-output: html_document
+output:
+  html_document:
+    toc: TRUE
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
+## 簡介
+
+在這份報告裡面我下載 [Kaggle](https://www.kaggle.com/) 的 Titanic 訓練資料來進行資料整理與探索性分析。
+
 ## 資料讀取
+
+我使用 `read.csv()` 函數讀入資料集。
+
+```{r}
+titanic_csv <- read.csv("https://storage.googleapis.com/r_rookies/kaggle_titanic_train.csv", header=TRUE)
+```
+
+## 資料框外觀
+
+這個資料有 891 個觀測值與 12 個變數。
+
+```{r}
+str(titanic_csv)
+```
+
+## 資料清理
+
+我發現這個資料的 `Age` 變數有 177 個遺漏值，我決定用中位數填補這些遺漏值。
+
+```{r}
+summary(titanic_csv$Age)
+```
+
+```{r}
+age_median <- median(titanic_csv$Age, na.rm = TRUE)
+titanic_csv$Age[is.na(titanic_csv$Age)] <- age_median
+summary(titanic_csv$Age)
+```
+
+## 資料視覺化
+
+我利用 `ggplot2` 與 `plotly` 套件來作圖。
+
+```{r message = FALSE}
+library(ggplot2)
+library(plotly)
+
+# 性別
+ggplot_bar_sex <- ggplot(titanic_csv, aes(x = Sex, y = Survived, fill = Sex)) + geom_bar(stat = "identity")
+ggplot_bar_sex_plotly <- ggplotly(ggplot_bar_sex)
+ggplot_bar_sex_plotly
+
+# Pclass
+ggplot_bar_pclass <- ggplot(titanic_csv, aes(x = factor(Pclass), y = Survived, fill = factor(Pclass))) + geom_bar(stat = "identity", width = .7)
+ggplot_bar_pclass_plotly <- ggplotly(ggplot_bar_pclass)
+ggplot_bar_pclass_plotly
+```
+
+## 結論
+
+在這個船難存活下來的人以女人和有錢人為多。
