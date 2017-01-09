@@ -1,6 +1,6 @@
 ---
 title: "讀取不同的資料格式"
-author: "Yao-Jen Kuo"
+author: "郭耀仁"
 date: "`r Sys.Date()`"
 output: slidy_presentation
 ---
@@ -69,7 +69,3 @@ titanic_xlsx <- read_excel("~/Downloads/kaggle_titanic_train.xlsx")
 library(haven)
 smoking_sas_data <- read_sas("http://storage.googleapis.com/r_rookies/smoking.sas7bdat")
 ```
-
-## 隨堂練習
-
-[讀取不同的資料格式 - 隨堂練習](https://yaojenkuo.github.io/r_rookies/ch6_exercise)

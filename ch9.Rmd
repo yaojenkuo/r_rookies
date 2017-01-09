@@ -1,6 +1,6 @@
 ---
 title: "用 R Markdown 撰寫資料分析報告"
-author: "Yao-Jen Kuo"
+author: "郭耀仁"
 date: "`r Sys.Date()`"
 output: slidy_presentation
 ---
