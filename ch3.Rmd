@@ -49,9 +49,9 @@ num_vector[c(1, 3, 4)]
 num_vector[2:4]
 num_vector[-1]
 # 練習使用 `length()` 函數
-lenght_of_num_vector <- length(num_vector)
-lenght_of_num_vector
-num_vector[2:lenght_of_num_vector]
+length_of_num_vector <- length(num_vector)
+length_of_num_vector
+num_vector[2:length_of_num_vector]
 ```
 
 ## Vector（向量）（3）
