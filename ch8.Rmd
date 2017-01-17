@@ -9,6 +9,13 @@ output: slidy_presentation
 knitr::opts_chunk$set(echo = TRUE, results = 'hide', warning = FALSE, fig.show = 'hide')
 ```
 
+## 視覺化的力量
+
+- [Hans Rosling](https://www.youtube.com/watch?v=jbkSRLYSojo)
+
+> He rose to international celebrity status after producing a [Ted Talk](https://www.ted.com/talks/hans_rosling_shows_the_best_stats_you_ve_ever_seen?language=zh-tw) in which he promoted the use of data to explore development issues.
+> [Hans Rosling - Wikipedia](https://en.wikipedia.org/wiki/Hans_Rosling)
+
 ## 產生隨機數
 
 - `runif()` 函數可以幫你產生 0 到 1之間**均勻分配**的隨機數
