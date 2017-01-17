@@ -2,9 +2,7 @@
 title: "建立你的 R 語言開發環境"
 author: "郭耀仁"
 date: "`r Sys.Date()`"
-output:
-  revealjs::revealjs_presentation:
-    center: true
+output: slidy_presentation
 ---
 
 ```{r setup, include=FALSE}
@@ -17,8 +15,6 @@ knitr::opts_chunk$set(echo = FALSE)
 - RStudio
 - Git
 
-# 安裝 R
-
 ## 安裝 R(OS X)
 
 - 從 The Comprehensive R Archive Network（[CRAN](https://cran.r-project.org/)）下載 .dmg 檔進行安裝
@@ -27,8 +23,6 @@ knitr::opts_chunk$set(echo = FALSE)
 
 - 從 The Comprehensive R Archive Network（[CRAN](https://cran.r-project.org/)）下載 .exe 檔進行安裝
 
-# 安裝 RStudio
-
 ## 安裝 RStudio(OS X)
 
 - 從 [RStudio](https://www.rstudio.com/products/rstudio/download3/) 下載 .pkg 檔來進行安裝
@@ -36,8 +30,6 @@ knitr::opts_chunk$set(echo = FALSE)
 ## 安裝 RStudio(Windows)
 
 - 從 [RStudio](https://www.rstudio.com/products/rstudio/download3/) 下載 .exe 檔來進行安裝
-
-# 安裝 Git
 
 ## 安裝 Git(OS X)
 
@@ -51,6 +43,24 @@ knitr::opts_chunk$set(echo = FALSE)
 ## 申請 GitHub 帳號
 
 - 至 [GitHub](https://github.com/) 申請一個帳戶
+
+## 基本的命令列指令
+
+| 指令          | 說明                     |
+| ------------- |--------------------------|
+| cd            | 切換目錄                 |
+| pwd           | 取得目前所在的位置       |
+| ls            | 列出目前的檔案列表       |
+| mkdir         | 建立新的目錄             |
+| touch         | 建立檔案                 |
+| cp            | 複製檔案                 |
+| mv            | 移動檔案                 |
+| rm            | 刪除檔案                 |
+
+## 基本的命令列指令（2）
+
+- 打開 Git Bash
+- 練習前一頁投影片的命令列指令
 
 ## 設定 Git
 
@@ -72,10 +82,9 @@ cd ~
 git clone "YOUR REPOSITORY URL"
 ```
 
-## 將程式碼推到遠端 repository
+## 將本機新增的檔案推到遠端 repository
 
-- 在本機資料夾撰寫一個 `hello_world.R`，只有一行程式：`print("Hello World!")`
-
+- 在本機資料夾新增檔案
 - 存檔後在命令列輸入：
 
 ```
@@ -84,9 +93,15 @@ git commit -m "first commit"
 git push
 ```
 
-# 期中作業
+- `git commit -m` 後面的訊息可以自訂
 
-## 上傳兩個檔案至 GitHub
+## 期中作業
 
-- RStudio 螢幕截圖
-- hello_world.R
+- 上傳兩個檔案至 GitHub
+    - RStudio 螢幕截圖
+    - hello_world.R
+
+```{r, results = 'hide'}
+# hello_world.R
+print("Hello world!")
+```

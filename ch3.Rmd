@@ -137,7 +137,7 @@ temperature_factor[1] > temperature_factor[2]
 - 一個 m * n 的矩陣指的是有 m 列、n 欄
 - 使用 `matrix()` 函數可以將向量轉換為矩陣
 - 指定兩個參數 `nrow = ` 與 `ncol = `
-- 預設是以**列的方向**將元素填入矩陣
+- 預設是以**欄的方向**將元素填入矩陣
 
 ```{r}
 my_vector <- 1:8

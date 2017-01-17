@@ -23,7 +23,7 @@ knitr::opts_chunk$set(echo = TRUE, results = 'hide', warning = FALSE)
 
 ```{r}
 head(mtcars)
-mtcars_col_names <- colnames(mtcars) # 查詢一下 colnames() 函數
+mtcars_col_names <- names(mtcars) # 查詢一下 names() 函數
 mtcars_col_names[1]
 mtcars_col_names[2]
 mtcars_col_names[3]
@@ -43,7 +43,7 @@ mtcars_col_names[11]
 - 如果今天你要對一個擁有 1,111 個變數的資料框做這件事呢？
 
 ```{r}
-mtcars_col_names <- colnames(mtcars)
+mtcars_col_names <- names(mtcars)
 # for 迴圈
 for (i in mtcars_col_names) {
   print(i)
@@ -63,10 +63,12 @@ i # 看看 i
 - 我們利用填滿一個矩陣來展示
 
 ```{r}
-my_mat <- matrix(nrow = 2, ncol = 2)
-for (i in 1:ncol(my_mat)) {
-  for (j in 1:nrow(my_mat)) {
-    my_mat[i, j] <- i * j
+my_mat <- matrix(nrow = 2, ncol = 3)
+my_vector <- 1:6
+for (j in 1:ncol(my_mat)) {
+  for (i in 1:nrow(my_mat)) {
+    my_mat[i, j] <- my_vector[1]
+    my_vector <- my_vector[-1] # 每跑完一次迴圈要丟掉第一個元素
   }
 }
 ```
@@ -78,23 +80,23 @@ for (i in 1:ncol(my_mat)) {
 
 ```{r}
 my_vector <- 1:4
-my_mat <- matrix(nrow = 3, ncol = 3)
-for (i in 1:nrow(my_mat)){
-  for (j in 1:ncol(my_mat)){
+my_mat <- matrix(nrow = 3, ncol = 4)
+for (j in 1:ncol(my_mat)){
+  for (i in 1:nrow(my_mat)){
     my_mat[i, j] <- my_vector[1]
-    my_vector <- my_vector[-1] # 每跑完一次迴圈要丟掉一個元素
+    my_vector <- my_vector[-1] # 每跑完一次迴圈要丟掉第一個元素
   }
 }
 ```
 
-- 這是 `byrow = TRUE`，還記得嗎？你知道怎麼改成 `byrow = FALSE` 嗎？
+- 這是 `byrow = FALSE`，還記得嗎？你知道怎麼改成 `byrow = TRUE` 嗎？
 
 ## 迴圈（6）
 
 - `while` 迴圈會先檢查條件才執行程式碼
 
 ```{r}
-mtcars_col_names <- colnames(mtcars)
+mtcars_col_names <- names(mtcars)
 i <- 1
 while (i <= length(mtcars_col_names)) {
   print(mtcars_col_names[i])
@@ -158,7 +160,7 @@ switch(as.character(answer),
 - 在迴圈中加入 `break` 或 `next` 讓你的程式更有彈性
 
 ```{r}
-mtcars_col_names <- colnames(mtcars)
+mtcars_col_names <- names(mtcars)
 for (i in mtcars_col_names) {
   if (i == "wt") {
     break
