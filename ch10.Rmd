@@ -70,8 +70,6 @@ ggplot_bar_pclass_plotly
 
 ## 建立一個分類模型
 
-### 決策樹
-
 我利用 `rpart()` 函數建立一個決策樹分類模型來預測 `Survived` 變數。
 
 ```{r}
@@ -101,6 +99,7 @@ url <- "https://storage.googleapis.com/py_ds_basic/kaggle_titanic_test.csv"
 to_predict <- read.csv(url, stringsAsFactors = FALSE)
 predicted <- predict(titanic_clf, to_predict, type = "class")
 to_submit <- data.frame(to_predict[, "PassengerId"], predicted)
+names(to_submit) <- c("PassengerId", "Survived")
 head(to_submit, n = 20)
 # write.csv(to_submit, file = "to_submit.csv")
 ```
